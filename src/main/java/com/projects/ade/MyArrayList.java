@@ -10,22 +10,6 @@ public class MyArrayList implements MyList {
         this.listSize = 0;
     }
 
-    public int[] getArray() {
-        return array;
-    }
-
-    public void setArray(int[] array) {
-        this.array = array;
-    }
-
-    public int getListSize() {
-        return listSize;
-    }
-
-    public void setListSize(int listSize) {
-        this.listSize = listSize;
-    }
-
     @Override
     public int getElement(int index) {
 
