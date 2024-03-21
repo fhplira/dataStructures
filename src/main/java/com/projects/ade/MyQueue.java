@@ -2,16 +2,16 @@ package com.projects.ade;
 
 public interface MyQueue {
 
-    //	Adiciona um elemento atrás da fila
+    //Adds an element at the end of the queue
     public void offer(int element);
 
-    //	Obtém o elemento da frente, sem retirá-lo
+    //Gets the front element without removing it
     public int peek();
 
-    //	Obtém o elemento da frente e retira-o
+    //Gets the front element and removes it
     public int poll();
 
-    //	Obtém o tamanho da fila
+    //Gets the size list
     public int getSize();
 
 }
