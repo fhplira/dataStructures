@@ -1,15 +1,15 @@
 package com.projects.ade;
 
-public interface MyQueue {
+public interface MyQueue<T> {
 
     //Adds an element at the end of the queue
-    public void offer(int element);
+    public void offer(T element);
 
     //Gets the front element without removing it
-    public int peek();
+    public T peek();
 
     //Gets the front element and removes it
-    public int poll();
+    public T poll();
 
     //Gets the size list
     public int getSize();

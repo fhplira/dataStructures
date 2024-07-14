@@ -2,13 +2,13 @@ package com.projects.ade;
 
 import com.projects.ade.MyQueue;
 
-public class QueueImplementation implements MyQueue {
+public class QueueImplementation<T> implements MyQueue<T> {
 
     private Node front;
     private Node rear;
     private int size;
 
-    public void offer(int element) {
+    public void offer(T element) {
 
         Node newNode = new Node(element);
 
@@ -23,18 +23,18 @@ public class QueueImplementation implements MyQueue {
         this.size++;
     }
 
-    public int peek() {
+    public T peek() {
 
         validateEmptyQueue();
 
-        return this.rear.getValue();
+        return this.front.getValue();
     }
 
-    public int poll() {
+    public T poll() {
 
         validateEmptyQueue();
 
-        int frontValue = this.front.getValue();
+        T frontValue = this.front.getValue();
         Node frontNext = this.front.getNext();
         this.front = frontNext;
 
@@ -48,18 +48,18 @@ public class QueueImplementation implements MyQueue {
 
     private class Node {
 
-        private int value;
+        private T value;
         private Node next;
 
-        public Node (int value) {
+        public Node (T value) {
             this.value = value;
         }
 
-        public int getValue() {
+        public T getValue() {
             return value;
         }
 
-        public void setValue(int value) {
+        public void setValue(T value) {
             this.value = value;
         }
 
