@@ -1,28 +1,28 @@
 package com.projects.ade;
 
-public class MyArrayList implements MyList {
+public class MyArrayList<T> implements MyList<T> {
 
-    private int[] array;
+    private T[] array;
     private int listSize;
 
     public MyArrayList() {
-        this.array = new int[10];
+        this.array = (T[]) new Object[10];
         this.listSize = 0;
     }
 
     @Override
-    public int getElement(int index) {
+    public T getElement(int index) {
 
         if(index > listSize || index < 0){
             throw new RuntimeException("Index out of bounds");
         }
 
-        int element = this.array[index];
+        T element = this.array[index];
         return element;
     }
 
     @Override
-    public void add(int element) {
+    public void add(T element) {
 
         if(this.array.length <= this.listSize) {
             duplicateArray();
@@ -33,7 +33,7 @@ public class MyArrayList implements MyList {
     }
 
     private void duplicateArray() {
-        int [] newArray = new int[this.array.length * 2];
+        T[] newArray = (T[]) new Object[this.array.length * 2];
 
         for(int i = 0; i < this.array.length; i++){
             newArray[i] = this.array[i];
@@ -43,7 +43,7 @@ public class MyArrayList implements MyList {
     }
 
     @Override
-    public void add(int element, int index) {
+    public void add(T element, int index) {
 
         if(this.listSize - this.array.length >= 0){
             duplicateArray();
@@ -80,7 +80,7 @@ public class MyArrayList implements MyList {
     }
 
     @Override
-    public void replace(int element, int index) {
+    public void replace(T element, int index) {
 
         if(this.array.length - this.listSize >= 0){
             duplicateArray();

@@ -1,6 +1,6 @@
 package com.projects.ade;
 
-public class MyLinkedList implements MyList{
+public class MyLinkedList<T> implements MyList<T>{
 
     private Node head;
     private Node tail;
@@ -10,7 +10,7 @@ public class MyLinkedList implements MyList{
         this.listSize = 0;
     }
 
-    public int getElement(int index) {
+    public T getElement(int index) {
 
         Node value = this.head;
         for (int i = 0; i < index; i++) {
@@ -20,7 +20,7 @@ public class MyLinkedList implements MyList{
         return value.getValue();
     }
 
-    public void add(int element) {
+    public void add(T element) {
 
         Node node = new Node(element);
 
@@ -37,7 +37,7 @@ public class MyLinkedList implements MyList{
 
     }
 
-    public void add(int element, int index) {
+    public void add(T element, int index) {
 
         validateIndex(index);
         Node node = new Node(element);
@@ -74,7 +74,7 @@ public class MyLinkedList implements MyList{
 
     }
 
-    public void replace(int element, int index) {
+    public void replace(T element, int index) {
 
         validateIndex(index);
 
@@ -87,6 +87,10 @@ public class MyLinkedList implements MyList{
         node.setNext(getNode(index + 1));
         Node previous = getNode(index - 1);
         previous.setNext(node);
+
+        if (index == listSize - 1) {
+            this.tail = node;
+        }
 
     }
 
@@ -111,18 +115,18 @@ public class MyLinkedList implements MyList{
 
 
     private class Node {
-        private int value;
+        private T value;
         private Node next;
 
-        public Node(int value) {
+        public Node(T value) {
             this.value = value;
         }
 
-        public int getValue() {
+        public T getValue() {
             return value;
         }
 
-        public void setValue(int value) {
+        public void setValue(T value) {
             this.value = value;
         }
 
