@@ -1,14 +1,14 @@
 package com.projects.ade;
 
-public interface Tree {
+public interface Tree<T> {
 
     //Adds an element to the tree
-    public void add(int element);
+    public void add(T element);
 
     //Checks if an element is present in the tree
-    public boolean contains(int element);
+    public boolean contains(T element);
 
     //Removes an element from the tree
-    public void remove(int element);
+    public void remove(T element);
 
 }

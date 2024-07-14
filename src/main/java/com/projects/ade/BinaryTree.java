@@ -1,6 +1,6 @@
 package com.projects.ade;
 
-public interface BinaryTree extends Tree{
+public interface BinaryTree<T> extends Tree<T>{
 
     //Pre-order route
     public void preOrderTraversal();
