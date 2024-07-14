@@ -1,11 +1,11 @@
 package com.projects.ade;
 
-public class StackImplementation implements MyStack {
+public class StackImplementation<T> implements MyStack<T> {
 
     private Node top;
     private int size;
 
-    public void push(int element) {
+    public void push(T element) {
 
         Node node = new Node(element);
 
@@ -15,11 +15,11 @@ public class StackImplementation implements MyStack {
         this.size++;
     }
 
-    public int pop() {
+    public T pop() {
 
         validateEmptyStack();
 
-        int value = this.top.getValue();
+        T value = this.top.getValue();
         this.top = top.getNext();
 
         this.size--;
@@ -27,7 +27,7 @@ public class StackImplementation implements MyStack {
         return value;
     }
 
-    public int peek() {
+    public T peek() {
 
         validateEmptyStack();
 
@@ -40,18 +40,18 @@ public class StackImplementation implements MyStack {
 
     private class Node {
 
-        int value;
+        T value;
         Node next;
 
-        public Node(int value) {
+        public Node(T value) {
             this.value = value;
         }
 
-        public int getValue() {
+        public T getValue() {
             return value;
         }
 
-        public void setValue(int value) {
+        public void setValue(T value) {
             this.value = value;
         }
 

@@ -1,15 +1,15 @@
 package com.projects.ade;
 
-public interface MyStack {
+public interface MyStack<T> {
 
     //Adds an element to the top
-    void push(int element);
+    void push(T element);
 
     //Gets the top element without removing it
-    int peek();
+    T peek();
 
     //Gets the top element and removes it
-    int pop();
+    T pop();
 
     //Gets the number of elements in the stack
     int getSize();
